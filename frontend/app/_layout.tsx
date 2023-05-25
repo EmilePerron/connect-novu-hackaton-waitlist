@@ -1,5 +1,5 @@
 import { useFonts } from "expo-font";
-import { useColorScheme } from "react-native";
+import { useColorScheme, Platform } from "react-native";
 import { TamaguiProvider, Theme, YStack, XStack } from "tamagui";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SplashScreen, Stack } from "expo-router";
@@ -46,7 +46,13 @@ export default function RootLayout() {
           <Theme name={colorScheme === "dark" ? "dark" : "light"}>
             <Stack>
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+              <Stack.Screen
+                name="search"
+                options={{
+                  presentation: Platform.OS == "web" ? undefined : "modal",
+                  headerShown: false,
+                }}
+              />
             </Stack>
           </Theme>
         </TamaguiProvider>

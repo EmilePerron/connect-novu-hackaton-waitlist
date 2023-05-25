@@ -8,6 +8,7 @@ import {
   useColorScheme,
   View as DefaultView,
   Platform,
+  Pressable,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -18,7 +19,11 @@ import {
   H2 as DefaultH2,
   Card as DefaultCard,
   Button as DefaultButton,
+  Input as DefaultInput,
+  ButtonProps,
 } from "tamagui";
+import { Link, useRouter } from "expo-router";
+import { Href } from "expo-router/build/link/href";
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -79,7 +84,32 @@ export const Button = styled(DefaultButton, {
   backgroundColor: "#000",
   color: "#fff",
   borderRadius: "$6",
+  overflow: "hidden",
 });
+
+export const Input = styled(DefaultInput, {
+  color: "#000",
+  borderColor: "#dbc0d499",
+  borderWidth: "$1.5",
+  lineHeight: "$1",
+});
+
+type LinkButtonProps = ButtonProps & {
+  href: Href;
+};
+
+export function LinkButton(props: LinkButtonProps) {
+  const { href, ...otherProps } = props;
+  const router = useRouter();
+
+  return (
+    <Pressable onPress={() => router.push(href)}>
+      <Link href={href} asChild>
+        <Button {...otherProps} />
+      </Link>
+    </Pressable>
+  );
+}
 
 export function BackgroundGradient() {
   return (

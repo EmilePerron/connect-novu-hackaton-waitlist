@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "waitlist",
+    "name": "Waitlist",
     "slug": "waitlist",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,6 +27,14 @@
     "web": {
       "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Waitlist to use your location when searching for nearby locations."
+        }
+      ]
+    ]
   }
 }

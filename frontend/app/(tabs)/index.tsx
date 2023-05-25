@@ -5,13 +5,18 @@ import {
   Button,
   H1,
   H2,
+  LinkButton,
   Text,
 } from "../../components/Themed";
 import { ScrollView, Spacer, Stack, XStack, YStack } from "tamagui";
 import { RootView } from "../../components/RootView";
 import { RequestCard } from "../../components/RequestCard";
+import { Link, useRouter } from "expo-router";
+import { Pressable } from "react-native";
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <RootView>
       <H2>Your requests</H2>
@@ -25,7 +30,8 @@ export default function HomeScreen() {
           description="Coupe pour femme, teinture"
         ></RequestCard>
       </YStack>
-      <Button>Join a waitlist</Button>
+
+      <LinkButton href="/search">Join a waitlist</LinkButton>
 
       <Spacer size="$4" />
 
