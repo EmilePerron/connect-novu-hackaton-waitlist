@@ -42,7 +42,8 @@
     "react-native-svg": "13.4.0",
     "react-native-web": "^0.18.12",
     "tamagui": "^1.29.3",
-    "use-debounce": "^9.0.4"
+    "use-debounce": "^9.0.4",
+    "expo-blur": "~12.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -1,5 +1,5 @@
 import { CardProps } from "tamagui";
-import { Card, Text } from "./Themed";
+import { Button, Card, Text } from "./Themed";
 
 export type RequestCardProps = CardProps & {
   name: string;
@@ -22,6 +22,9 @@ export function RequestCard(props: RequestCardProps) {
         </Text>
         <Text style={{ fontSize: 14, color: "#777" }}>{props.description}</Text>
       </Card.Header>
+      <Card.Footer padded style={{ paddingTop: 0 }}>
+        <Button>Cancel request</Button>
+      </Card.Footer>
     </Card>
   );
 }

@@ -16,7 +16,12 @@ export default function ModalScreen() {
   const onSearchCallback = useDebouncedCallback((query) => {
     search(query || "")
       .then((results) => {
-        setLocations(results);
+        setLocations(
+          results.map((location: object) => {
+            location.key = location.id;
+            return location;
+          })
+        );
       })
       .catch(console.error);
   }, 500);

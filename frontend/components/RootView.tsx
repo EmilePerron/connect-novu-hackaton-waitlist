@@ -6,19 +6,20 @@ export function RootView(props: ViewProps) {
   return (
     <>
       <BackgroundGradient />
-      <ScrollView>
-        <SafeAreaView>
-          <Stack
-            paddingTop="$4"
-            paddingHorizontal="$6"
-            jc="flex-start"
-            ac="flex-start"
-            space
-          >
-            {props.children}
-          </Stack>
-        </SafeAreaView>
-      </ScrollView>
+      <SafeAreaView>
+        <ScrollView
+          contentContainerStyle={{
+            justifyContent: "flex-start",
+            alignContent: "flex-start",
+          }}
+          paddingTop="$4"
+          paddingHorizontal="$6"
+          space
+          showsVerticalScrollIndicator={false}
+        >
+          {props.children}
+        </ScrollView>
+      </SafeAreaView>
     </>
   );
 }

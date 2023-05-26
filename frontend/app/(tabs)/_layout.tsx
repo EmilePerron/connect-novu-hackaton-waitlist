@@ -1,6 +1,7 @@
 import Feather from "@expo/vector-icons/Feather";
-import { Link, Tabs } from "expo-router";
-import { Pressable, useColorScheme } from "react-native";
+import { Tabs } from "expo-router";
+import { StyleSheet, useColorScheme } from "react-native";
+import { BlurView } from "expo-blur";
 
 import Colors from "../../constants/Colors";
 
@@ -21,6 +22,13 @@ export default function TabLayout() {
     <>
       <Tabs
         screenOptions={{
+          tabBarBackground: () => (
+            <BlurView
+              tint="light"
+              intensity={50}
+              style={StyleSheet.absoluteFill}
+            />
+          ),
           tabBarStyle: {
             backgroundColor: "transparent",
             borderTopWidth: 0,

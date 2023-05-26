@@ -31,8 +31,6 @@ export default function HomeScreen() {
         ></RequestCard>
       </YStack>
 
-      <LinkButton href="/search">Join a waitlist</LinkButton>
-
       <Spacer size="$4" />
 
       <H2>Popular businesses nearby</H2>
@@ -58,7 +56,8 @@ export default function HomeScreen() {
           peopleInQueue={2}
         ></BusinessCard>
       </ScrollView>
-      <Button>Browse locations</Button>
+
+      <LinkButton href="/search">Find a location</LinkButton>
     </RootView>
   );
 }

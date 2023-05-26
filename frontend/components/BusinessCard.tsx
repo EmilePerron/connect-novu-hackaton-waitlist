@@ -9,7 +9,7 @@ export type BusinessCardProps = CardProps & {
 
 export function BusinessCard(props: BusinessCardProps) {
   return (
-    <Card style={{ width: "30%" }} {...props}>
+    <Card style={{ width: "100%" }} {...props}>
       <Card.Header padded>
         <Text
           style={{
@@ -18,16 +18,27 @@ export function BusinessCard(props: BusinessCardProps) {
             color: "#414141",
             marginBottom: 5,
           }}
+          numberOfLines={1}
         >
           {props.name}
         </Text>
-        <Text style={{ fontSize: 14, color: "#777", marginBottom: 2 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            color: "#777",
+            marginBottom: 2,
+          }}
+          numberOfLines={1}
+        >
           {props.category}
         </Text>
         <Text style={{ fontSize: 14, color: "#777" }}>{`${
           props.peopleInQueue ?? 0
         } people in queue`}</Text>
       </Card.Header>
+      <Card.Footer padded style={{ paddingTop: 0 }}>
+        <Button>Join waitlist</Button>
+      </Card.Footer>
     </Card>
   );
 }
